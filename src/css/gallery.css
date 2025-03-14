@@ -1,0 +1,16 @@
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 10px;
+  list-style: none;
+  margin-top: 10px;
+}
+
+.gallery-item {
+  flex: 0 0 auto;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.03);
+  transition: transform 0.3s ease-in-out;
+}

@@ -9,10 +9,22 @@
   <body>
     <load src="./partials/header.html" />
 
-    <main></main>
+    <main>
+      <section class="container">
+        <!-- form -->
+        <form class="form">
+          <input type="text" name="search" required />
+          <button type="submit">Search</button>
+        </form>
+        <!-- loader -->
+        <div id="result"></div>
+        <!--result (gallery) -->
+        <ul class="gallery"></ul>
+      </section>
+    </main>
 
     <load src="./partials/footer.html" />
 
-    <script type="module" src="./js/main.js"></script>
+    <script type="module" src="./main.js"></script>
   </body>
 </html>
