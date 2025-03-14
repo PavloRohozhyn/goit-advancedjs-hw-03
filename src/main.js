@@ -12,7 +12,7 @@ document.querySelector('.form').addEventListener('submit', event => {
   document.querySelector('ul.gallery').innerHTML = ''; // clear content
   const formData = new FormData(event.target);
   const formProps = Object.fromEntries(formData);
-  const main = document.querySelector('#result');
+  const main = document.querySelector('#loader');
   getData(formProps.search)
     .then(res => {
       if (!res.ok) {

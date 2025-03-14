@@ -43,7 +43,7 @@ const render = data => {
 };
 
 const showLoader = (flag = true) => {
-  const el = document.querySelector('div#result');
+  const el = document.querySelector('div#loader');
   flag ? el.classList.add('loader') : el.classList.remove('loader');
 };
 
