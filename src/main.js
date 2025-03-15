@@ -15,16 +15,17 @@ document.querySelector('.form').addEventListener('submit', event => {
   const main = document.querySelector('#loader');
   getData(formProps.search)
     .then(res => {
-      if (!res.ok) {
+      if (res.status != 200) {
         throw new Error('Server response fail');
       }
-      return res.json();
-    })
-    .then(res => {
-      main.innerHtml = render(res);
+      main.innerHtml = render(res.data);
     })
     .catch(e => {
-      console.log(e);
-      showLoader(false);
+      iziToast.error({
+        message: e.message,
+        position: 'topRight',
+        timeout: 5000,
+      });
+      showLoader(false); // remove loader
     });
 });

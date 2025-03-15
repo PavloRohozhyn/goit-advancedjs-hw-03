@@ -1,5 +1,7 @@
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 
 const render = data => {
   if (data && data.total > 0) {
@@ -28,6 +30,24 @@ const render = data => {
                 height="290"
             />
             </a>
+            <ul class="gallery-info">
+              <li class="gallery-info-item">
+                <p>Downloads</p>
+                <p>610937</p>
+              </li>
+              <li class="gallery-info-item">
+                <p>Comments</p>
+                <p>229</p>
+              </li>
+              <li class="gallery-info-item">
+                <p>Views</p>
+                <p>900290</p>
+              </li>
+              <li class="gallery-info-item">
+                <p>Likes</p>
+                <p>1813</p>
+              </li>
+            </ul>
           </li>`
       )
       .join('');
@@ -38,13 +58,28 @@ const render = data => {
       captionDelay: 250, // Delay in milliseconds before showing the caption
     });
   } else {
-    console.log('no data yet');
+    iziToast.success({
+      message:
+        'Sorry, there are no images matching your search query. Please try again!',
+      position: 'topRight',
+      timeout: 5000,
+    });
   }
 };
 
 const showLoader = (flag = true) => {
-  const el = document.querySelector('div#loader');
-  flag ? el.classList.add('loader') : el.classList.remove('loader');
+  const el = document.querySelector('span.loader');
+
+  if (flag) {
+    // show element
+    if (el.hasAttribute('style')) {
+      el.removeAttribute('style');
+    }
+  } else {
+    if (!el.hasAttribute('style')) {
+      el.setAttribute('style', 'display:none');
+    }
+  }
 };
 
 export { render, showLoader };
