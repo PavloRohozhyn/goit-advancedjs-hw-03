@@ -6,7 +6,7 @@ import { render, showLoader } from './js/render-functions';
 // remove loader
 showLoader(false);
 
-document.querySelector('.search-form').addEventListener('submit', event => {
+document.querySelector('.form').addEventListener('submit', event => {
   event.preventDefault();
   const formData = new FormData(event.target);
   const formProps = Object.fromEntries(formData);
