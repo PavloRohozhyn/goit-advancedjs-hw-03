@@ -6,8 +6,6 @@ import 'izitoast/dist/css/iziToast.min.css';
 const render = data => {
   if (data && data.total > 0) {
     showLoader(false);
-
-    console.log(data);
     const gallery = document.querySelector('.gallery');
     gallery.innerHTML = data.hits
       .map(
@@ -15,10 +13,10 @@ const render = data => {
           webformatURL,
           largeImageURL,
           tags,
-          // likes,
-          // views,
-          // comments,
-          // downloads,
+          likes,
+          views,
+          comments,
+          downloads,
         }) => `
           <li class="gallery-item">
             <a class="gallery-link" href="${largeImageURL}">
@@ -33,19 +31,19 @@ const render = data => {
             <ul class="gallery-info">
               <li class="gallery-info-item">
                 <p>Downloads</p>
-                <p>610937</p>
+                <p>${downloads}</p>
               </li>
               <li class="gallery-info-item">
                 <p>Comments</p>
-                <p>229</p>
+                <p>${comments}</p>
               </li>
               <li class="gallery-info-item">
                 <p>Views</p>
-                <p>900290</p>
+                <p>${views}</p>
               </li>
               <li class="gallery-info-item">
                 <p>Likes</p>
-                <p>1813</p>
+                <p>${likes}</p>
               </li>
             </ul>
           </li>`
