@@ -2,7 +2,7 @@ import { API_KEY, baseUrl } from './consts';
 import axios from 'axios';
 
 const getData = search => {
-  search = search.lenght ? search : '';
+  search = search ? search : '';
   const opt = {
     key: API_KEY,
     q: search,

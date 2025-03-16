@@ -24,7 +24,7 @@ const render = data => {
                 class="gallery-image"
                 src="${webformatURL}"
                 alt="${tags}"
-                width="350"
+                width="350" 
                 height="290"
             />
             </a>
@@ -56,6 +56,7 @@ const render = data => {
       captionDelay: 250, // Delay in milliseconds before showing the caption
     });
   } else {
+    showLoader(false);
     iziToast.success({
       message:
         'Sorry, there are no images matching your search query. Please try again!',
